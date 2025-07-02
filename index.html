@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ប្រព័ន្ធតាមដានចំណូលចំណាយ</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Koulen for titles, Battambang for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Koulen&display=swap" rel="stylesheet">
+    
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <div class="container mx-auto max-w-lg p-4">
+        
+        <!-- Header -->
+        <header class="text-center my-6">
+            <h1 class="font-koulen text-4xl text-slate-900">ប្រព័ន្ធគ្រប់គ្រងចំណូលចំណាយ</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section id="summary" class="grid grid-cols-3 gap-3 mb-6 text-center">
+                <div class="bg-blue-200 p-3 rounded-lg shadow">
+                    <h2 class="font-koulen text-lg text-blue-800">ចំណូល</h2>
+                    <p id="total-income" class="font-battambang font-bold text-xl text-blue-900">0 ៛</p>
+                </div>
+                <div class="bg-orange-200 p-3 rounded-lg shadow">
+                    <h2 class="font-koulen text-lg text-orange-800">ចំណាយ</h2>
+                    <p id="total-expense" class="font-battambang font-bold text-xl text-orange-900">0 ៛</p>
+                </div>
+                <div class="bg-green-200 p-3 rounded-lg shadow">
+                    <h2 class="font-koulen text-lg text-green-800">សមតុល្យ</h2>
+                    <p id="balance" class="font-battambang font-bold text-xl text-green-900">0 ៛</p>
+                </div>
+            </section>
+
+            <!-- Add Transaction Form -->
+            <section id="add-transaction-form" class="bg-white p-5 rounded-xl shadow-md mb-6">
+                <h2 class="font-koulen text-2xl mb-4 text-slate-800">បន្ថែមប្រតិបត្តិការថ្មី</h2>
+                <form id="transaction-form" class="space-y-4">
+                    <div>
+                        <label for="transaction-date" class="font-koulen text-slate-700">កាលបរិច្ឆេទ</label>
+                        <input type="date" id="transaction-date" class="w-full p-2 mt-1 bg-slate-50 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label for="transaction-category" class="font-koulen text-slate-700">ប្រភេទចំណាយ/ចំណូល</label>
+                        <input type="text" id="transaction-category" placeholder="ឧ. ថ្លៃអាហារ, ប្រាក់ខែ" class="w-full p-2 mt-1 bg-slate-50 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label for="transaction-amount" class="font-koulen text-slate-700">ចំនួនទឹកប្រាក់ (៛)</label>
+                        <input type="number" id="transaction-amount" placeholder="50000" class="w-full p-2 mt-1 bg-slate-50 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div class="flex gap-4">
+                        <label class="flex-1">
+                            <input type="radio" name="transaction-type" value="income" class="sr-only peer" checked>
+                            <div class="w-full p-2 text-center rounded-md cursor-pointer bg-blue-100 text-blue-800 peer-checked:bg-blue-600 peer-checked:text-white font-bold">ចំណូល</div>
+                        </label>
+                        <label class="flex-1">
+                            <input type="radio" name="transaction-type" value="expense" class="sr-only peer">
+                            <div class="w-full p-2 text-center rounded-md cursor-pointer bg-orange-100 text-orange-800 peer-checked:bg-orange-600 peer-checked:text-white font-bold">ចំណាយ</div>
+                        </label>
+                    </div>
+                    <button type="submit" class="w-full bg-slate-800 text-white font-koulen text-lg py-3 rounded-lg hover:bg-slate-900 active:scale-95 transition-transform">
+                        បន្ថែម
+                    </button>
+                </form>
+            </section>
+
+            <!-- Transaction History -->
+            <section id="transaction-history">
+                <h2 class="font-koulen text-2xl mb-4 text-slate-800">ប្រវត្តិប្រតិបត្តិការ</h2>
+                <div id="transaction-list" class="space-y-3">
+                    <!-- Transactions will be dynamically inserted here -->
+                    <p id="no-transactions-message" class="text-center text-slate-500 py-8">មិនទាន់មានប្រតិបត្តិការនៅឡើយទេ</p>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Custom Message/Alert Box -->
+        <div id="message-box" class="fixed top-5 right-5 bg-red-500 text-white py-2 px-4 rounded-lg shadow-lg opacity-0 translate-x-full transition-all duration-300"></div>
+
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

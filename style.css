@@ -1,0 +1,58 @@
+/* style.css
+  This file contains custom styles to complement Tailwind CSS.
+*/
+
+/* Define custom font families based on the Google Fonts import */
+body {
+    font-family: 'Battambang', sans-serif;
+}
+
+.font-koulen {
+    font-family: 'Koulen', cursive;
+}
+
+.font-battambang {
+    font-family: 'Battambang', cursive;
+}
+
+/* Style for number input to remove arrows on Chrome, Safari, Edge, Firefox */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+/* Animation for new transaction items for a smooth entry */
+.transaction-item {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom scrollbar for better aesthetics on desktop browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #a8a29e; /* stone-400 */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #78716c; /* stone-500 */
+}
